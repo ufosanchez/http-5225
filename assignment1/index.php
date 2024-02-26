@@ -21,7 +21,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1 class="my-2">Teams</h1>
+                <h1 class="my-2">Players</h1>
             </div>
         </div>
     </div>
