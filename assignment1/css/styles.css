@@ -1,0 +1,49 @@
+body {
+    background-color: #f4f4f4; 
+}
+
+.custom-card {
+    background-color: #ffffff; 
+    border-color: #343a40; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); 
+    transition: transform .2s ease-in-out;
+}
+
+.custom-card:hover {
+    transform: scale(1.05);
+}
+
+.custom-card-title {
+    color: #007bff; 
+}
+
+.custom-card p {
+    color: #6c757d;
+}
+
+.join_sql_data{
+    color: #c1121f;
+    font-weight: bold;
+}
+
+.card-img-top {
+    height: 200px;
+    width: 100%;
+} 
+
+.team-league{
+    display: flex;
+    justify-content: space-around;
+}
+
+.team-league img{
+    max-width: 60px;
+    height: fit-content;
+}
+
+@media (max-width: 576px){
+    img {
+        max-width: 155px;
+        margin: 0 auto;
+    }
+}
