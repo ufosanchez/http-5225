@@ -1,7 +1,12 @@
 <?php
     include('includes/connect.php');
 
-    $query = 'SELECT players.*, teams.team_name, teams.teamLogo, leagues.leagueURL FROM players JOIN teams ON players.team_id = teams.team_id JOIN leagues ON leagues.league_id = teams.league_id';
+    if(isset($_GET['search'])){
+        $query = 'SELECT players.*, teams.team_name, teams.teamLogo, leagues.leagueURL FROM players JOIN teams ON players.team_id = teams.team_id JOIN leagues ON leagues.league_id = teams.league_id WHERE players.fname LIKE "%'.$_GET['search_key'].'%" OR players.lname LIKE "%'.$_GET['search_key'].'%" OR CONCAT(fname, " ", lname) LIKE "%'.$_GET['search_key'].'%"';
+    } else {
+        $query = 'SELECT players.*, teams.team_name, teams.teamLogo, leagues.leagueURL FROM players JOIN teams ON players.team_id = teams.team_id JOIN leagues ON leagues.league_id = teams.league_id';
+    }
+
     
     $players = mysqli_query($connect, $query);
 ?>
@@ -22,6 +27,19 @@
         <div class="row">
             <div class="col">
                 <h1 class="my-2">Players</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mb-2">
+        <div class="row">
+            <div class="col">
+            <form method="GET" action="">
+                <div class="form-group mb-2">
+                    <input type="text" class="form-control" name="search_key" placeholder="Seach by Soccer Player" style="width:30%">
+                </div>
+                <button type="submit" name="search" class="btn btn-primary">Search Player</button>
+            </form>
             </div>
         </div>
     </div>
